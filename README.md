@@ -149,98 +149,19 @@ To set up monitoring:
     Configure Prometheus to scrape the /health/metrics endpoint.
     Use Grafana to visualize the me
 
+```
 course-service/
 ├── src/
-│ ├── domain/
-│ │ ├── entities/
-│ │ │ ├── course.entity.ts
-│ │ │ ├── section.entity.ts
-│ │ │ ├── lesson.entity.ts
-│ │ │ ├── quiz.entity.ts
-│ │ │ ├── enrollment.entity.ts
-│ │ │ └── progress.entity.ts
-│ │ ├── repositories/
-│ │ │ ├── course.repository.ts
-│ │ │ ├── enrollment.repository.ts
-│ │ │ └── progress.repository.ts
-│ │ ├── services/
-│ │ │ └── course.service.ts
-│ │ └── exceptions/
-│ │ └── domain.exceptions.ts
-│ ├── application/
-│ │ ├── use-cases/
-│ │ │ ├── create-course.use-case.ts
-│ │ │ ├── get-course.use-case.ts
-│ │ │ ├── enroll-course.use-case.ts
-│ │ │ └── update-progress.use-case.ts
-│ │ ├── dtos/
-│ │ │ ├── course.dto.ts
-│ │ │ ├── section.dto.ts
-│ │ │ ├── lesson.dto.ts
-│ │ │ ├── quiz.dto.ts
-│ │ │ ├── enrollment.dto.ts
-│ │ │ └── progress.dto.ts
-│ │ └── interfaces/
-│ │ ├── course.interface.ts
-│ │ └── enrollment.interface.ts
-│ ├── infrastructure/
-│ │ ├── database/
-│ │ │ ├── entities/
-│ │ │ │ ├── course.orm-entity.ts
-│ │ │ │ ├── section.orm-entity.ts
-│ │ │ │ ├── lesson.orm-entity.ts
-│ │ │ │ ├── quiz.orm-entity.ts
-│ │ │ │ ├── enrollment.orm-entity.ts
-│ │ │ │ └── progress.orm-entity.ts
-│ │ │ ├── repositories/
-│ │ │ │ ├── course-typeorm.repository.ts
-│ │ │ │ ├── enrollment-typeorm.repository.ts
-│ │ │ │ └── progress-typeorm.repository.ts
-│ │ │ └── database.module.ts
-│ │ ├── kafka/
-│ │ │ ├── kafka.module.ts
-│ │ │ ├── kafka.producer.ts
-│ │ │ └── kafka.consumer.ts
-│ │ ├── redis/
-│ │ │ ├── redis.module.ts
-│ │ │ └── redis.service.ts
-│ │ ├── grpc/
-│ │ │ ├── proto/
-│ │ │ │ ├── course.proto
-│ │ │ │ └── user.proto
-│ │ │ ├── clients/
-│ │ │ │ └── user.client.ts
-│ │ │ └── grpc.module.ts
-│ │ ├── config/
-│ │ │ └── config.service.ts
-│ │ ├── logging/
-│ │ │ └── logger.service.ts
-│ │ └── monitoring/
-│ │ └── metrics.service.ts
-│ ├── presentation/
-│ │ ├── grpc/
-│ │ │ ├── course-grpc.controller.ts
-│ │ │ └── grpc.module.ts
-│ │ └── http/
-│ │ ├── health.controller.ts
-│ │ └── http.module.ts
-│ ├── core/
-│ │ ├── constants/
-│ │ │ └── constants.ts
-│ │ └── types/
-│ │ └── types.ts
-│ ├── main.ts
-│ └── app.module.ts
-├── tests/
-│ ├── unit/
-│ │ ├── domain/
-│ │ ├── application/
-│ │ ├── infrastructure/
-│ │ └── presentation/
-│ ├── integration/
-│ └── jest.config.ts
-├── Dockerfile
-├── .dockerignore
-├── package.json
-├── tsconfig.json
-└── README.md
+│   ├── domain/               # Core business logic (entities, repositories, services)
+│   ├── application/          # Use cases, DTOs, interfaces
+│   ├── infrastructure/       # External integrations (database, Kafka, Redis, gRPC)
+│   ├── presentation/         # gRPC and HTTP controllers
+│   ├── core/                # Constants and types
+│   ├── main.ts              # Application entry point
+│   └── app.module.ts        # Root module
+├── tests/                   # Unit and integration tests
+├── Dockerfile               # Docker configuration
+├── docker-compose.yml       # Docker Compose for dependencies
+├── package.json             # Dependencies and scripts
+└── README.md                # Project documentation
+```
